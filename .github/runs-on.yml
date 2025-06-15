@@ -2,5 +2,4 @@ images:
   almalinux_10_x86_64:
     platform: "linux"
     arch: "x64"
-    owner: "764336703387" # AWS marketplace
-    name: "AlmaLinux OS 10*" # Official Ubuntu image
+    ami: "ami-01d87dc7c538eb2b3"
