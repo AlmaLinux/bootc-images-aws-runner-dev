@@ -52,7 +52,7 @@ runs:
           ALL_LABELS="$ALL_LABELS --label=\"$label\" --annotation=\"$label\""
         done <<< "$LABELS"
 
-        make image \
+        sudo make image \
           PLATFORM=${{ env.PLATFORM }} \
           LABELS="${ALL_LABELS}" \
           IMAGE_NAME=${{ env.IMAGE_NAME }} \
