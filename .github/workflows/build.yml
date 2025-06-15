@@ -26,7 +26,8 @@ jobs:
   set-versions-matrix:
     name: Set versions matrix
     runs-on:
-      - runs-on=${{ github.run_id }}/runner=2cpu-linux-x64/image=almalinux_10_x86_64
+      # - runs-on=${{ github.run_id }}/runner=2cpu-linux-x64/image=almalinux_10_x86_64
+      - runs-on=${{ github.run_id }}/runner=2cpu-linux-x64/image=ubuntu24-full-x64
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
       date_stamp: ${{ steps.date-stamp.outputs.date_stamp }}
