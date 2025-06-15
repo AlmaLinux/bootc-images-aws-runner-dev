@@ -26,7 +26,7 @@ jobs:
   set-versions-matrix:
     name: Set versions matrix
     runs-on:
-      - runs-on=${{ github.run_id }}/runner=8cpu-linux-x64/image=ubuntu24-full-x64
+      - runs-on=${{ github.run_id }}/runner=2cpu-linux-x64/image=ubuntu24-full-x64/spot=lowest-price
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
       date_stamp: ${{ steps.date-stamp.outputs.date_stamp }}
@@ -58,7 +58,7 @@ jobs:
   build:
     name: Build image
     runs-on:
-      - runs-on=${{ github.run_id }}/runner=8cpu-linux-x64/image=ubuntu24-full-x64/extras=tmpfs
+      - runs-on=${{ github.run_id }}/family=r7a.2xlarge/image=ubuntu24-full-x64/extras=tmpfs/spot=lowest-price
     needs: [set-versions-matrix]
     strategy:
       fail-fast: false
@@ -92,7 +92,7 @@ jobs:
     name: Push manifest
     needs: [set-versions-matrix, build]
     runs-on:
-      - runs-on=${{ github.run_id }}/runner=8cpu-linux-x64/image=ubuntu24-full-x64/extras=tmpfs
+      - runs-on=${{ github.run_id }}/runner=8cpu-linux-x64/image=ubuntu24-full-x64/extras=tmpfs/spot=lowest-price
     strategy:
       fail-fast: false
       matrix:
