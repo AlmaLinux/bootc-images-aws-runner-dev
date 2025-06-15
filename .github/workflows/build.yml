@@ -25,7 +25,9 @@ env:
 jobs:
   set-versions-matrix:
     name: Set versions matrix
-    runs-on: codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}
+    runs-on:
+      - codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}
+        buildspec-override:true
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
       date_stamp: ${{ steps.date-stamp.outputs.date_stamp }}
