@@ -3,4 +3,4 @@ images:
     platform: "linux"
     arch: "x64"
     owner: "764336703387" # AWS marketplace
-    name: "764336703387/AlmaLinux OS 10*" # Official Ubuntu image
+    name: "AlmaLinux OS 10*" # Official Ubuntu image
