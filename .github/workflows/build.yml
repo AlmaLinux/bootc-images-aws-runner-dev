@@ -33,7 +33,7 @@ jobs:
       - name: Set matrix
         id: set-matrix
         run: |
-          cat /etc/redhat-release
+          cat /etc/os-release
           jq --version
           # Format json for versions matrix
           case ${{ github.event_name }} in
