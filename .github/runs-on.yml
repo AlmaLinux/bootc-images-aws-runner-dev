@@ -2,4 +2,5 @@ images:
   almalinux_10_x86_64:
     platform: "linux"
     arch: "x64"
-    ami: "ami-01d87dc7c538eb2b3"
+    owner: "764336703387"
+    name: "AlmaLinux OS 10*"
