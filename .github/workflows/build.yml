@@ -33,19 +33,17 @@ jobs:
       - name: Set matrix
         id: set-matrix
         run: |
-          cat /etc/os-release
-          jq --version
           # Format json for versions matrix
           case ${{ github.event_name }} in
             workflow_dispatch)
               if [[ "${{ inputs.RELEASE }}" == "ALL" ]]; then
-                echo "matrix=$(jq -c <<< '[${{ env.VERSIONS_LIST }}]')" >> $GITHUB_OUTPUT
+                echo "matrix=$(echo '[${{ env.VERSIONS_LIST }}]' | jq -c)" >> $GITHUB_OUTPUT
               else
-                echo "matrix=$(jq -c <<< '["${{ inputs.RELEASE }}"]')" >> $GITHUB_OUTPUT
+                echo "matrix=$(echo '["${{ inputs.RELEASE }}"]' | jq -c)" >> $GITHUB_OUTPUT
               fi
               ;;
             schedule)
-              echo "matrix=$(jq -c <<< '[${{ env.VERSIONS_LIST }}]')" >> $GITHUB_OUTPUT
+              echo "matrix=$(echo '[${{ env.VERSIONS_LIST }}]' | jq -c)" >> $GITHUB_OUTPUT
               ;;
           esac
 
