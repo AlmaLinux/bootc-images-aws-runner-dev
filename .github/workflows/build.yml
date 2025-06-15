@@ -58,7 +58,9 @@ jobs:
 
   build:
     name: Build image
-    runs-on: ${{ matrix.ARCH == 'arm64' && 'codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}' || 'codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}' }}
+    runs-on:
+      - ${{ matrix.ARCH == 'arm64' && 'codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}' || 'codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}' }}
+        buildspec-override:true
     needs: [set-versions-matrix]
     strategy:
       fail-fast: false
@@ -91,7 +93,9 @@ jobs:
     if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
     name: Push manifest
     needs: [set-versions-matrix, build]
-    runs-on: codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}
+    runs-on:
+      - codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}
+        buildspec-override:true
     strategy:
       fail-fast: false
       matrix:
