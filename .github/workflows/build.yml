@@ -27,7 +27,6 @@ jobs:
     name: Set versions matrix
     runs-on:
       - codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}
-        buildspec-override:true
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
       date_stamp: ${{ steps.date-stamp.outputs.date_stamp }}
@@ -58,7 +57,7 @@ jobs:
 
   build:
     name: Build image
-    runs-on: ${{ matrix.ARCH == 'arm64' && 'ubuntu-24.04-arm' || 'codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}' }}
+    runs-on: ${{ matrix.ARCH == 'arm64' && 'codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}' || 'codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}' }}
     needs: [set-versions-matrix]
     strategy:
       fail-fast: false
