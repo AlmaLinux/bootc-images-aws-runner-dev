@@ -37,7 +37,7 @@ jobs:
           case ${{ github.event_name }} in
             workflow_dispatch)
               if [[ "${{ inputs.RELEASE }}" == "ALL" ]]; then
-                echo "matrix=$(echo '[${{ env.VERSIONS_LIST }}]' | jq -c)" >> $GITHUB_OUTPUT
+                echo "matrix=[${{ env.VERSIONS_LIST }}]" >> $GITHUB_OUTPUT
               else
                 echo "matrix=$(echo '["${{ inputs.RELEASE }}"]' | jq -c)" >> $GITHUB_OUTPUT
               fi
