@@ -27,6 +27,7 @@ jobs:
     name: Set versions matrix
     runs-on:
       - codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}
+        buildspec-override:true
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
       date_stamp: ${{ steps.date-stamp.outputs.date_stamp }}
@@ -63,7 +64,7 @@ jobs:
       fail-fast: false
       matrix:
         VERSION_MAJOR: ${{ fromJSON(needs.set-versions-matrix.outputs.matrix) }}
-        ARCH: [amd64, arm64, amd64/v2]
+        ARCH: [amd64, amd64/v2]
         exclude:
           - VERSION_MAJOR: 9
             ARCH: amd64/v2
