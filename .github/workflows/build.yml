@@ -58,7 +58,7 @@ jobs:
   build:
     name: Build image
     runs-on:
-      - runs-on=${{ github.run_id }}/runner=8cpu-linux-x64/image=ubuntu24-full-x64
+      - runs-on=${{ github.run_id }}/runner=8cpu-linux-x64/image=ubuntu24-full-x64/extras=tmpfs
     needs: [set-versions-matrix]
     strategy:
       fail-fast: false
@@ -92,7 +92,7 @@ jobs:
     name: Push manifest
     needs: [set-versions-matrix, build]
     runs-on:
-      - runs-on=${{ github.run_id }}/runner=8cpu-linux-x64/image=ubuntu24-full-x64
+      - runs-on=${{ github.run_id }}/runner=8cpu-linux-x64/image=ubuntu24-full-x64/extras=tmpfs
     strategy:
       fail-fast: false
       matrix:
