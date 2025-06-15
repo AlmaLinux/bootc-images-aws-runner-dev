@@ -59,7 +59,7 @@ jobs:
   build:
     name: Build image
     runs-on:
-      - ${{ matrix.ARCH == 'arm64' && 'codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}' || 'codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}' }}
+      - ${{ matrix.ARCH == 'arm64' && codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }} || codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }} }}
         buildspec-override:true
     needs: [set-versions-matrix]
     strategy:
