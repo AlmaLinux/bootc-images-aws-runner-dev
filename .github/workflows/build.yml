@@ -25,7 +25,7 @@ env:
 jobs:
   set-versions-matrix:
     name: Set versions matrix
-    runs-on: codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}
+    runs-on: ubuntu-24.04
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
       date_stamp: ${{ steps.date-stamp.outputs.date_stamp }}
@@ -37,13 +37,13 @@ jobs:
           case ${{ github.event_name }} in
             workflow_dispatch)
               if [[ "${{ inputs.RELEASE }}" == "ALL" ]]; then
-                echo "matrix=[${{ env.VERSIONS_LIST }}]" >> $GITHUB_OUTPUT
+                echo "matrix=$(jq -c <<< '[${{ env.VERSIONS_LIST }}]')" >> $GITHUB_OUTPUT
               else
-                echo "matrix=$(echo '["${{ inputs.RELEASE }}"]' | jq -c)" >> $GITHUB_OUTPUT
+                echo "matrix=$(jq -c <<< '["${{ inputs.RELEASE }}"]')" >> $GITHUB_OUTPUT
               fi
               ;;
             schedule)
-              echo "matrix=$(echo '[${{ env.VERSIONS_LIST }}]' | jq -c)" >> $GITHUB_OUTPUT
+              echo "matrix=$(jq -c <<< '[${{ env.VERSIONS_LIST }}]')" >> $GITHUB_OUTPUT
               ;;
           esac
 
