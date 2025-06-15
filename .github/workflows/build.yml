@@ -26,8 +26,7 @@ jobs:
   set-versions-matrix:
     name: Set versions matrix
     runs-on:
-      - codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}
-        buildspec-override:true
+      - runs-on=${{ github.run_id }}/runner=8cpu-linux-x64/image=ubuntu24-full-x64
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
       date_stamp: ${{ steps.date-stamp.outputs.date_stamp }}
@@ -59,8 +58,7 @@ jobs:
   build:
     name: Build image
     runs-on:
-      - codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}
-        buildspec-override:true
+      - runs-on=${{ github.run_id }}/runner=8cpu-linux-x64/image=ubuntu24-full-x64
     needs: [set-versions-matrix]
     strategy:
       fail-fast: false
@@ -94,8 +92,7 @@ jobs:
     name: Push manifest
     needs: [set-versions-matrix, build]
     runs-on:
-      - codebuild-github_runners-${{ github.run_id }}-${{ github.run_attempt }}
-        buildspec-override:true
+      - runs-on=${{ github.run_id }}/runner=8cpu-linux-x64/image=ubuntu24-full-x64
     strategy:
       fail-fast: false
       matrix:
