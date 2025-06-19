@@ -1,10 +1,16 @@
 images:
-  almalinux_10_x86_64:
-    # platform: "linux"
-    # arch: "x64"
-    # owner: "764336703387"
+  almalinux-10-x86_64:
+    platform: "linux"
+    arch: "x64"
+    owner: "764336703387"
     # name: "764336703387/AlmaLinux OS 10*x86_64"
-    ami: ami-06be7a8dff9965741
+    ami: "ami-06be7a8dff9965741"
+
+  ubuntu22-full-arm64-python3.7-3.13:
+    platform: "linux"
+    arch: "arm64"
+    owner: "408085265505"
+    ami: "ami-09b72f1a95ff33179"
 
   custom_x64_image:
     platform: "linux"
