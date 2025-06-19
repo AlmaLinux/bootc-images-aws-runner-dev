@@ -59,7 +59,7 @@ jobs:
   build:
     name: Build image
     # this is built weird because we can't do expressions inside of expressions in GH CI
-    runs-on: runs-on=${{ matrix.ARCH == 'arm64' && format('{0}/runner=highram-arm64/image=ubuntu24-full-arm64/extras=tmpfs/spot=lowest-price', github.run_id) || format('{0}/runner=highram/image=ubuntu24-full-x64/extras=tmpfs/spot=lowest-price', github.run_id) }}
+    runs-on: runs-on=${{ matrix.ARCH == 'arm64' && format('{0}/runner=highram/image=ubuntu24-full-arm64/extras=tmpfs/spot=lowest-price', github.run_id) || format('{0}/runner=highram/image=ubuntu24-full-x64/extras=tmpfs/spot=lowest-price', github.run_id) }}
     needs: [set-versions-matrix]
     strategy:
       fail-fast: false
