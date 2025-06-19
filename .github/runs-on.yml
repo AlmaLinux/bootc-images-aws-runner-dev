@@ -5,6 +5,8 @@ images:
     owner: "764336703387"
     name: "AlmaLinux OS 10*x86_64"
     # ami: "ami-06be7a8dff9965741"
+    preinstall: |
+      dnf install jq tar wget -y
 
   ubuntu22-full-arm64-python3.7-3.13:
     platform: "linux"
