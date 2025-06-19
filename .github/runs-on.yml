@@ -6,9 +6,6 @@ images:
     name: "AlmaLinux OS 10*x86_64"
     # ami: "ami-06be7a8dff9965741"
     preinstall: |
-      echo "almalinux" | passwd --stdin root
-      echo "ec2-user" | passwd --stdin root
-      sleep 600
       dnf install jq libicu tar wget /usr/bin/shasum -y
 
   ubuntu22-full-arm64-python3.7-3.13:
