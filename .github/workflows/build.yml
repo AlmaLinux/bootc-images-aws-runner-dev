@@ -58,7 +58,7 @@ jobs:
 
   build:
     name: Build image
-    runs-on: ${{ matrix.ARCH == 'arm64' && '${{ github.run_id }}/family=r7a.2xlarge/image=ubuntu24-full-arm64/extras=tmpfs/spot=lowest-price' || '${{ github.run_id }}/family=r7a.2xlarge/image=ubuntu24-full-x64/extras=tmpfs/spot=lowest-price' }}
+    runs-on: ${{ matrix.ARCH == 'arm64' && '${{ github.run_id }}/family=r8g.2xlarge/image=ubuntu24-full-arm64/extras=tmpfs/spot=lowest-price' || '${{ github.run_id }}/family=r7a.2xlarge/image=ubuntu24-full-x64/extras=tmpfs/spot=lowest-price' }}
     needs: [set-versions-matrix]
     strategy:
       fail-fast: false
