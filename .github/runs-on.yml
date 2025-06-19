@@ -3,7 +3,7 @@ images:
     platform: "linux"
     arch: "x64"
     owner: "764336703387"
-    name: "AlmaLinux OS 10*"
+    name: "764336703387/AlmaLinux OS 10*"
 
   custom_x64_image:
     platform: "linux"
