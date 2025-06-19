@@ -4,7 +4,17 @@ runners:
     disk: default
     family: ["c7i", "c7a", "c8g"]
     spot: capacity-optimized
-  highram:
+  memory-32:
+    ram: 64
+    disk: default
+    family: ["r7i", "r7a", "r8g"]
+    spot: capacity-optimized
+  memory-64:
+    ram: 64
+    disk: default
+    family: ["r7i", "r7a", "r8g"]
+    spot: capacity-optimized
+  memory-128:
     ram: 128
     disk: default
     family: ["r7i", "r7a", "r8g"]
