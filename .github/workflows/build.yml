@@ -27,7 +27,7 @@ jobs:
     name: Set versions matrix
     runs-on:
       #- runs-on=${{github.run_id}}/runner=2cpu-linux-x64/image=almalinux-10-x64
-      - runs-on=${{github.run_id}}/runner=2cpu-linux-x64
+      - runs-on=${{github.run_id}}/runner=default
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
       date_stamp: ${{ steps.date-stamp.outputs.date_stamp }}
@@ -93,7 +93,7 @@ jobs:
     name: Push manifest
     needs: [set-versions-matrix, build]
     runs-on:
-      - runs-on=${{ github.run_id }}/runner=8cpu-linux-x64/image=ubuntu24-full-x64/extras=tmpfs/spot=lowest-price
+      - runs-on=${{github.run_id}}/runner=default
     strategy:
       fail-fast: false
       matrix:
