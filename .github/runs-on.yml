@@ -1,24 +1,42 @@
+runners:
+  default:
+    cpu: 8
+    disk: default
+    family: ["c7i", "c7a", "c8g"]
+    spot: capacity-optimized
+
 images:
-  almalinux-10-x64:
+  almalinux-10-x86_64:
     platform: "linux"
     arch: "x64"
-    owner: "764336703387"
-    name: "AlmaLinux OS 10*x86_64"
-    # ami: "ami-06be7a8dff9965741"
+    owner: "764336703387" # Official AlmaLinux owner
+    name: "AlmaLinux OS 10 * x86_64"
     preinstall: |
       dnf install jq libicu tar wget /usr/bin/shasum -y
 
-  ubuntu22-full-arm64-python3.7-3.13:
+  almalinux-10-aarch64:
     platform: "linux"
     arch: "arm64"
-    owner: "408085265505"
-    ami: "ami-09b72f1a95ff33179"
+    owner: "764336703387" # Official AlmaLinux owner
+    name: "AlmaLinux OS 10 * aarch64"
+    preinstall: |
+      dnf install jq libicu tar wget /usr/bin/shasum -y
 
-  custom_x64_image:
+  almalinux-9-x86_64:
     platform: "linux"
     arch: "x64"
-    owner: "099720109477" # Official Ubuntu owner
-    name: "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*" # Official Ubuntu image
+    owner: "764336703387" # Official AlmaLinux owner
+    name: "AlmaLinux OS 9 * x86_64"
+    preinstall: |
+      dnf install jq libicu tar wget /usr/bin/shasum -y
+
+  almalinux-9-aarch64:
+    platform: "linux"
+    arch: "arm64"
+    owner: "764336703387" # Official AlmaLinux owner
+    name: "AlmaLinux OS 9 * aarch64"
+    preinstall: |
+      dnf install jq libicu tar wget /usr/bin/shasum -y
 
 admin:
   - jonathanspw
