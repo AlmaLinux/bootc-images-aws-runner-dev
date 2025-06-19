@@ -1,5 +1,5 @@
 images:
-  almalinux-10-x86_64:
+  almalinux-10-x64:
     platform: "linux"
     arch: "x64"
     owner: "764336703387"
