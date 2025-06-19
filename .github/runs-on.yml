@@ -68,6 +68,22 @@ images:
     preinstall: |
       dnf install jq libicu tar wget /usr/bin/shasum -y
 
+  almalinux-8-x86_64:
+    platform: "linux"
+    arch: "x64"
+    owner: "764336703387" # Official AlmaLinux owner
+    name: "AlmaLinux OS 8 * x86_64"
+    preinstall: |
+      dnf install jq libicu tar wget /usr/bin/shasum -y
+
+  almalinux-8-aarch64:
+    platform: "linux"
+    arch: "arm64"
+    owner: "764336703387" # Official AlmaLinux owner
+    name: "AlmaLinux OS 8 * aarch64"
+    preinstall: |
+      dnf install jq libicu tar wget /usr/bin/shasum -y
+
 admin:
   - jonathanspw
   - codyro
