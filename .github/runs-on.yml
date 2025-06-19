@@ -3,8 +3,8 @@ images:
     platform: "linux"
     arch: "x64"
     owner: "764336703387"
-    # name: "764336703387/AlmaLinux OS 10*x86_64"
-    ami: "ami-06be7a8dff9965741"
+    name: "AlmaLinux OS 10*x86_64"
+    # ami: "ami-06be7a8dff9965741"
 
   ubuntu22-full-arm64-python3.7-3.13:
     platform: "linux"
