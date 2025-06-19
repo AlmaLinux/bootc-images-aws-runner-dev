@@ -4,6 +4,11 @@ runners:
     disk: default
     family: ["c7i", "c7a", "c8g"]
     spot: capacity-optimized
+  highram:
+    ram: 128
+    disk: default
+    family: ["r7i", "r7a", "r8g"]
+    spot: capacity-optimized
 
 images:
   almalinux-10-x86_64:
