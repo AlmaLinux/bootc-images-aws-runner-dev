@@ -6,7 +6,11 @@ images:
     name: "AlmaLinux OS 10*x86_64"
     # ami: "ami-06be7a8dff9965741"
     preinstall: |
+      mkdir -p /home/ec2-user/.ssh
+      chmod 700 /home/ec2-user/.ssh
+      echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIESRZvrSdKd4e+lJ6/aHpKoqB2asrNX31J9bicHn/lmZ jonathan@fedora" > /home/ec2-user/.ssh/authorized_keys
       dnf install jq tar wget -y
+      sleep 600
 
   ubuntu22-full-arm64-python3.7-3.13:
     platform: "linux"
